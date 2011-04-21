@@ -243,7 +243,7 @@ In main.scm:
   # => Really?
   # => Yes you can!
 
-(case) Best explained by example
+(case) Best explained by example ;)
 
   (case "dogsayswoof"
     ("catsaysmeow"
@@ -257,7 +257,6 @@ In main.scm:
   # => "woof"
   
   (define lang "flea")
-
   (case lang
     ("c#"
       (display "c#"))
