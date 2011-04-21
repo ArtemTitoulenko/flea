@@ -61,7 +61,7 @@ Flea's core is only about 100 lines of code, and provides a simple interface tha
 
 Flea comes with a small but thoughtful standard library that includes functions for:
 
-=== Requiring external program files
+==== Requiring external program files
 
 (require) Loads and runs a flea program file:
 
@@ -70,7 +70,7 @@ In otherfile.scm:
     (lambda (what)
       (display what)))
 
-In main.scm
+In main.scm:
   (require "otherfile")
   (say_something "Hello world!")
   # => "Hello world!"
