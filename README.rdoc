@@ -243,6 +243,34 @@ In main.scm:
   # => Really?
   # => Yes you can!
 
+(case) Best explained by example
+
+  (case "dogsayswoof"
+    ("catsaysmeow"
+      (display "meow"))
+    ("catsayswoof"
+      (display "meowwoof"))
+    ("dogsayswoof"
+      (display "woof"))
+    ("lawyersaysyourargumentisinvalid"
+      (display "boo")))
+  # => "woof"
+  
+  (define lang "flea")
+
+  (case lang
+    ("c#"
+      (display "c#"))
+    ("java"
+      (display "java"))
+    ("php"
+      (display "php"))
+    ("ruby"
+      (display "ruby"))
+    (default
+      (display "Some other cool language")))
+  # => "Some other cool language"
+
 ==== Function creation
 
 (lambda) Creates a new function:
