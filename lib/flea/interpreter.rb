@@ -56,7 +56,12 @@ module Flea
     def load_standard_library
       library_pattern = File.join(File.dirname(__FILE__), 'standard_library', '*.scm')
       
-      Dir[library_pattern].each do |item|
+      lambda = File.join(File.dirname(__FILE__), 'standard_library', 'lambda.scm')
+      File.open(lambda) do |file|
+        run(file.read)
+      end
+      
+      (Dir[library_pattern] - Dir[lambda]).each do |item|
         File.open(item) do |file|
           run(file.read)
         end
