@@ -17,7 +17,7 @@ This is the classic 'guess the number' program implemented in Flea:
       (define guess (string-to-num (gets)))
       (if (equal? guess number)
         (display "Good guess!\n")
-        (begin
+        (else
           (if (greater-than? guess number)
             (display "Lower!\n")
             (display "Higher!\n"))
@@ -60,6 +60,20 @@ Flea's core is only about 100 lines of code, and provides a simple interface tha
 === API
 
 Flea comes with a small but thoughtful standard library that includes functions for:
+
+==== Requiring external program files
+
+(require) Loads and runs a flea program file:
+
+In otherfile.scm:
+  (define say_something
+    (lambda (what)
+      (display what)))
+
+In main.scm:
+  (require "otherfile")
+  (say_something "Hello world!")
+  # => "Hello world!"
 
 ==== Output
 
@@ -215,6 +229,46 @@ Flea comes with a small but thoughtful standard library that includes functions 
     (display "true")
     (display "false"))
   # => false
+  
+  (if (equal? 1 1)
+    (then
+      (display "You can do large blocks of code with if statements like this!\n")
+      (display "Really?\n")
+      (display "Yes you can!\n"))
+    (else
+      (display "Something has messed up!")
+      (display "Really?")
+      (display "Yes it has!")))
+  # => You can do large blocks of code with if statements like this!
+  # => Really?
+  # => Yes you can!
+
+(case) Best explained by example ;)
+
+  (case "dogsayswoof"
+    ("catsaysmeow"
+      (display "meow"))
+    ("catsayswoof"
+      (display "meowwoof"))
+    ("dogsayswoof"
+      (display "woof"))
+    ("lawyersaysyourargumentisinvalid"
+      (display "boo")))
+  # => "woof"
+  
+  (define lang "flea")
+  (case lang
+    ("c#"
+      (display "c#"))
+    ("java"
+      (display "java"))
+    ("php"
+      (display "php"))
+    ("ruby"
+      (display "ruby"))
+    (default
+      (display "Some other cool language")))
+  # => "Some other cool language"
 
 ==== Function creation
 
