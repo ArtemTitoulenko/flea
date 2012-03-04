@@ -323,6 +323,11 @@ For more info on lambda syntax read the {R5RS Scheme specification}[http://schem
 
   > (quit 5)
   $
+
+(sort) sorts a list of things
+
+  (sort '("b" "c" "a"))
+  # => ("a" "b" "c")
   
 ==== Directories
 
