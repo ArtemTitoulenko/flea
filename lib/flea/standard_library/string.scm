@@ -2,7 +2,7 @@
     (native_function "
         Proc.new do |arguments, interpreter|
             output = \"\"
-            arguments.each {|x| output << interpreter.evaluate(x) }
+            interpreter.evaluate(arguments[0]).each {|x| output << interpreter.evaluate(x) }
             output
         end
     "))

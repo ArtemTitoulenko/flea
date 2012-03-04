@@ -184,6 +184,13 @@ In main.scm:
   (car '(1 2 3))
   # => 1
 
+(mapcar) Applies a function onto a list of items, returning the modified list:
+
+  (define say-hello (lambda (to) (display (string '("hello " to)))))
+  (mapcar say-hello '("Jon" "Alice" "Phil"))
+  hello Jonhello Alicehello Phil
+  # => ("hello Jon", "hello Alice", "hello Phil")
+
 (cdr) Returns the remainder of a list:
 
   (cdr '(1 2 3))
@@ -299,6 +306,11 @@ For more info on lambda syntax read the {R5RS Scheme specification}[http://schem
   
   (rand 10)
   # => 6
+  
+(string) Concatenates arguments to make a string
+
+  (string "a" "b" "c")
+  # => "abc"
 
 ==== Foreign function interface
 
