@@ -214,10 +214,10 @@ In main.scm:
 
 (null?) Returns true if it's first argument is null (the empty list):
 
-  (null '())
+  (null? '())
   # => #t
   
-  (null '(1 2 3))
+  (null? '(1 2 3))
   # => #f
   
   (null? 1)
