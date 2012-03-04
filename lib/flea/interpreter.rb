@@ -57,9 +57,7 @@ module Flea
       library_pattern = File.join(File.dirname(__FILE__), 'standard_library', '*.scm')
       
       lambda = File.join(File.dirname(__FILE__), 'standard_library', 'lambda.scm')
-      File.open(lambda) do |file|
-        run(file.read)
-      end
+      File.open(lambda) { |file| run(file.read) }
       
       (Dir[library_pattern] - Dir[lambda]).each do |item|
         File.open(item) do |file|
