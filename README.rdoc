@@ -75,6 +75,13 @@ In main.scm:
   (say_something "Hello world!")
   # => "Hello world!"
 
+(require-gem) loads a ruby gem that could be used later for native functions
+
+  (require-gem "json")
+  (define to-json (native_function "Proc.new do |a,i|; i.evaluate(a[0]).to_json; end"))
+  (to-json '(1 2 3 "a" "b" "c"))
+  #=> "[1,2,3,\"a\",\"b\",\"c\"]"
+
 ==== Output
 
 (display) Outputs data to STDOUT:
@@ -311,6 +318,70 @@ For more info on lambda syntax read the {R5RS Scheme specification}[http://schem
 
   (string "a" "b" "c")
   # => "abc"
+
+(quit) quits the current process with a given code, an alias for exit(code)
+
+  > (quit 5)
+  $
+  
+==== Directories
+
+(dir-pwd) the current directory as a string
+
+  (dir-pwd)
+  # => "/Users/x/code/flea"
+
+(dir-chdir) change current directory
+
+  (dir-chdir "/")
+  # => 
+
+(dir-entries) return a list of entries in the current directory
+
+  (dir-entries)
+  # => (".", "..", "flea", "flea.rb")
+  
+(dir-mkdir) create a new directory, with optional permissions, returns status
+
+  (dir-mkdir "jon")
+  # => 0
+
+(dir-rmdir) remove a directory
+
+  (dir-rmdir "jon")
+  # => 0
+
+==== Files
+
+(file-exists?) evaluates if a file exists given a relative path
+
+  (file-exists? "../lib/flea.rb")
+  # => #t
+
+(file-file?) evaluates if a path is a file
+
+  (file-file? "../lib/flea.rb")
+  # => #t
+
+(file-join) accepts a list of strings and makes a file path out of them
+
+  (file-join '("a" "b" "c"))
+  # => "a/b/c"
+
+(file-new) returns a file object which can be used for reading/writing
+
+  (file-new "tmp.txt" "r")
+  # => #<File:tmp.txt>
+
+(file-read) reads from a file object
+
+  (file-read (file-new "tmpno.txt", "r"))
+  # => "Hello there"
+
+(file-write) writes to a file object, returns the number of character written
+
+  (file-write (file-new "tmpno.txt" "w") "Hello there")
+  # => 11
 
 ==== Foreign function interface
 

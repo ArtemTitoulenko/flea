@@ -15,14 +15,14 @@
 (define file-join
     (native_function "
         Proc.new do |arguments, interpreter|
-            File.join(arguments.map {|x| interpreter.evaluate(x)})
+            File.join(interpreter.evaluate(arguments[0]).map {|x| interpreter.evaluate(x)})
         end
     "))
     
 (define file-new
     (native_function "
         Proc.new do |arguments, interpreter|
-            File.new(interpreter.evaluate(arguments[0]))
+            File.new(interpreter.evaluate(arguments[0]), interpreter.evaluate(arguments[1]))
         end
     "))
 

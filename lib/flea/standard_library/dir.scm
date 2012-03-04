@@ -22,7 +22,11 @@
 (define dir-mkdir
     (native_function "
         Proc.new do |arguments, interpreter|
-            Dir.mkdir(interpreter.evaluate(arguments[0]), interpreter.evaluate(arguments[1]))
+            if arguments[1].nil?
+                Dir.mkdir(interpreter.evaluate(arguments[0]))
+            else
+                Dir.mkdir(interpreter.evaluate(arguments[0]), interpreter.evaluate(arguments[1]))
+            end
         end
     "))
     
