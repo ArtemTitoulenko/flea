@@ -328,7 +328,24 @@ For more info on lambda syntax read the {R5RS Scheme specification}[http://schem
 
   (sort '("b" "c" "a"))
   # => ("a" "b" "c")
-  
+
+==== Hashes
+
+(hash-new) create a new hash table
+
+  (define hash (hash-new))
+  # => {}
+
+(hash-set) set a key to a value in a hash table
+
+  (hash-set hash "Content-Type" "text/html")
+  # => "text/html"
+
+(hash-get) get the value of a key from a hash table
+
+  (hash-get hash "Content-Type")
+  # => "text/html"
+
 ==== Directories
 
 (dir-pwd) the current directory as a string

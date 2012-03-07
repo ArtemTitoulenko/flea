@@ -16,6 +16,8 @@ begin
     gemspec.add_dependency "sexpistol"
     gemspec.add_development_dependency "any-spec"
     gemspec.executables << 'flea'
+    
+    gemspec.files.include Dir.glob("lib/flea/standard_library/*.scm")
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: gem install jeweler"
